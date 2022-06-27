@@ -1,4 +1,4 @@
-import SVGSprite from 'components/SVGSprite'
+import SVGSprite from 'components/utilities/SVGSprite'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
@@ -8,6 +8,7 @@ export default function Document() {
       <body>
         <SVGSprite />
         <Main />
+        <div id='portal' />
         <NextScript />
       </body>
     </Html>

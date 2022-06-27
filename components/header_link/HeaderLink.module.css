@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  gap: clamp(1rem, 1.42vw, 2rem);
+  align-items: center;
+  transition: opacity 0.2s ease;
+}
+
+.container:hover,
+.container:focus-visible {
+  opacity: 0.8;
+}
+
+.logo {
+  width: clamp(4rem, 5.28vw, 7.4rem);
+  aspect-ratio: 1 / 1;
+  fill: var(--cl-secondary);
+}
+
+.text {
+  max-width: 9ch;
+  font-size: clamp(1.8rem, 1.92vw, 2.7rem);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--cl-primary);
+}
