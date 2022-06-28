@@ -1,13 +1,14 @@
-import Header from 'components/header/Header'
 import Meta from 'components/utilities/Meta'
 import styles from '../styles/Home.module.css'
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <Meta title='- Home' />
-      <Header />
-      <h2>Lets start!</h2>
+      <h2>Homepage</h2>
     </>
   )
 }
+
+
+export default Home

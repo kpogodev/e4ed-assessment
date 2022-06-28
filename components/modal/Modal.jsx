@@ -12,7 +12,7 @@ const Modal = ({ children, isOpen, onClose, boxStyle }) => {
 
   // Close on outside click
   const onClickOut = (e) => {
-    if (!e.target.closest(`.${boxStyle}`)) return
+    if (e.target.closest(`.${boxStyle}`)) return
     onClose()
   }
 

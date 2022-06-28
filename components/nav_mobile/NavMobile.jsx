@@ -1,48 +1,50 @@
-import { useState } from 'react'
-import Modal from '../modal/Modal'
+import { useState, useContext, useCallback } from 'react'
 import Link from 'next/link'
+import { v4 as uuidv4 } from 'uuid'
+import Modal from '../modal/Modal'
+import NavigationContext from 'context/NavigationContext'
 import styles from './NavMobile.module.css'
 
-const NavMobile = () => {
+const NavMobile = ({ withHomeBtn }) => {
   const [burgerIsOpen, setBurgerIsOpen] = useState(false)
 
-  const toggleBurger = () => setBurgerIsOpen((prev) => !prev)
+  const pages = useContext(NavigationContext)
+
+  const toggleBurger = useCallback(() => setBurgerIsOpen((prev) => !prev), [])
 
   return (
-    <button className={styles.burger} onClick={toggleBurger}>
-      <svg>
-        <use href='#svg-burger' />
-      </svg>
-      <Modal isOpen={burgerIsOpen} onClose={toggleBurger} boxStyle={styles.menu}>
-        <ul className={styles.list}>
-          <li>
-            <Link href='/'>
-              <a>Home</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/about'>
-              <a>About Us</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/news-events'>
-              <a>News & Events</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/learning'>
-              <a>Learning</a>
-            </Link>
-          </li>
-          <li>
-            <Link href='/parents'>
-              <a>Parents</a>
-            </Link>
-          </li>
-        </ul>
+    <>
+      <button className={styles.burger} onClick={toggleBurger}>
+        <svg>
+          <use href='#svg-burger' />
+        </svg>
+      </button>
+      <Modal isOpen={burgerIsOpen} onClose={toggleBurger} boxStyle={styles.wrapper}>
+        <button className={styles.close} onClick={toggleBurger}>
+          <svg>
+            <use href='#svg-close' />
+          </svg>
+        </button>
+        <nav className={styles.nav}>
+          <ul className={styles.list}>
+            {withHomeBtn && (
+              <li>
+                <Link href='/'>
+                  <a>Home</a>
+                </Link>
+              </li>
+            )}
+            {pages.map((page) => (
+              <li key={uuidv4()}>
+                <Link href={`/${page.toLowerCase().replace(/\W+/g, '-')}`}>
+                  <a>{page}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </Modal>
-    </button>
+    </>
   )
 }
 

@@ -1,0 +1,58 @@
+.container {
+  position: relative;
+}
+
+.btn {
+  display: grid;
+  place-items: center;
+  width: 4.4rem;
+  height: 4.4rem;
+  color: #fff;
+  background: var(--cl-secondary);
+  border-radius: 50%;
+  border: none;
+  transition: 0.2s ease;
+}
+
+.btn svg {
+  width: 50%;
+  aspect-ratio: 1 / 1;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--cl-primary);
+}
+
+.popout {
+  position: absolute;
+  top: calc(100% + 1rem);
+  right: 0;
+  width: fit-content;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background: var(--cl-primary);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(1rem);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+}
+
+.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.input {
+  width: 23rem;
+  padding: 0.7rem;
+  font-size: 1.6rem;
+  border: 1px solid var(--cl-secondary);
+  border-radius: 0.3rem;
+}

@@ -1,0 +1,5 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 1.85vw, 2.6rem);
+}
