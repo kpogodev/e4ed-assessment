@@ -6,7 +6,7 @@ import styles from './NavWrap.module.css'
 import NavSearch from 'components/nav_search/NavSearch'
 
 const NavWrap = () => {
-  const { matches } = useMediaQuery('(max-width: 1300px)')
+  const { matches } = useMediaQuery('(max-width: 1320px)')
   return (
     <div className={styles.container}>
       {matches ? (

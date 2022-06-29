@@ -8,13 +8,19 @@
   color: #fff;
   background-color: var(--cl-secondary);
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.burger:hover,
+.burger:focus-visible {
+  background-color: var(--cl-primary);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .burger svg {
   width: 50%;
   aspect-ratio: 1 / 1;
   fill: currentColor;
-  pointer-events: none;
 }
 
 .close {
@@ -26,6 +32,12 @@
   background-color: transparent;
   color: var(--cl-text-light);
   border: none;
+  transition: color 0.2s ease;
+}
+
+.close:hover,
+.close:focus-visible {
+  color: var(--cl-primary);
 }
 
 .close svg {

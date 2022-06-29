@@ -6,7 +6,7 @@
   --cl-text-light: #aaaaaa;
   --cl-text-dark: #727272;
   --layout-width-xl: 1124px;
-  --gradient-overlay: linear-gradient(to top, #15162f 0%, rgba(0, 0, 0, 0) 100%);
+  --gradient-overlay: linear-gradient(to top, rgba(21, 22, 47, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 *,
@@ -47,4 +47,8 @@ ul {
 
 button {
   cursor: pointer;
+}
+
+svg {
+  pointer-events: none;
 }
