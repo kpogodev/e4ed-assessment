@@ -1,8 +1,25 @@
 import { useEffect, useCallback } from 'react'
 import { createPortal } from 'react-dom'
+import { motion } from 'framer-motion'
 import styles from './Modal.module.css'
 
 const Modal = ({ children, isOpen, onClose, boxStyle }) => {
+  const simpleFadeInOut = {
+    hidden: {
+      opacity: 0,
+    },
+    visible: {
+      opacity: 1,
+      transition: {
+        duration: 0.2,
+        ease: 'linear',
+      },
+    },
+    exit: {
+      opacity: 0,
+    },
+  }
+
   const onEscDown = useCallback(
     (e) => {
       if (isOpen && e.key === 'Escape') return onClose()
@@ -30,10 +47,12 @@ const Modal = ({ children, isOpen, onClose, boxStyle }) => {
     }
   }, [isOpen])
 
+  if (!isOpen) return null
+
   return createPortal(
-    <div className={isOpen ? `${styles.container} ${styles.open}` : styles.container} onClick={onClickOut}>
+    <motion.div variants={simpleFadeInOut} initial='hidden' animate='visible' exit='exit' className={styles.container} onClick={onClickOut}>
       <div className={boxStyle}>{children}</div>
-    </div>,
+    </motion.div>,
     document.getElementById('portal')
   )
 }

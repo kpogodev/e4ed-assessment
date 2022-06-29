@@ -5,7 +5,7 @@
   --cl-secondary: #f2ad1d;
   --cl-text-light: #aaaaaa;
   --cl-text-dark: #727272;
-  --layout-width-xl: 1124px;
+  --grid-width-xl: 1170px;
   --gradient-overlay: linear-gradient(to top, rgba(21, 22, 47, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
 }
 
@@ -19,6 +19,7 @@
 
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -46,6 +47,7 @@ ul {
 }
 
 button {
+  border: 0;
   cursor: pointer;
 }
 

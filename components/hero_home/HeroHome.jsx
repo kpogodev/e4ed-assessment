@@ -36,7 +36,7 @@ const HeroHome = () => {
           loop
         >
           <SwiperSlide className='swiper-no-swiping'>
-            <Image src='/slideshow-1.jpg' layout='fill' objectFit='cover' alt='' priority />
+            <Image src='/slideshow-1.jpg' layout='fill' objectFit='cover' alt='' priority/>
           </SwiperSlide>
           <SwiperSlide className='swiper-no-swiping'>
             <Image src='/slideshow-2.jpg' layout='fill' objectFit='cover' alt='' />

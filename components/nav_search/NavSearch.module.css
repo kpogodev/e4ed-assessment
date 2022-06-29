@@ -10,7 +10,7 @@
   color: #fff;
   background: var(--cl-secondary);
   border-radius: 50%;
-  border: none;
+
   transition: 0.2s ease;
 }
 

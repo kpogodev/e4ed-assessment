@@ -1,0 +1,32 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  padding: clamp(1.2rem, 1.42vw, 2rem) clamp(1.7rem, 2.14vw, 3rem);
+  min-width: 16.4rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+  border-radius: clamp(1.5rem, 1.78vw, 2.5rem) 0 clamp(1.5rem, 1.78vw, 2.5rem) 0;
+  box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.16);
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.primary {
+  background: var(--cl-primary);
+  color: #fff;
+}
+
+.secondary {
+  background: var(--cl-secondary);
+  color: #fff;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: #fff;
+  color: var(--cl-primary);
+  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3);
+}

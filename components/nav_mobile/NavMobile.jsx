@@ -7,7 +7,6 @@ import styles from './NavMobile.module.css'
 
 const NavMobile = ({ withHomeBtn }) => {
   const [burgerIsOpen, setBurgerIsOpen] = useState(false)
-
   const pages = useContext(NavigationContext)
 
   const toggleBurger = useCallback(() => setBurgerIsOpen((prev) => !prev), [])
@@ -20,29 +19,33 @@ const NavMobile = ({ withHomeBtn }) => {
         </svg>
       </button>
       <Modal isOpen={burgerIsOpen} onClose={toggleBurger} boxStyle={styles.wrapper}>
-        <button className={styles.close} onClick={toggleBurger}>
-          <svg>
-            <use href='#svg-close' />
-          </svg>
-        </button>
-        <nav className={styles.nav}>
-          <ul className={styles.list}>
-            {withHomeBtn && (
-              <li>
-                <Link href='/'>
-                  <a>Home</a>
-                </Link>
-              </li>
-            )}
-            {pages.map((page) => (
-              <li key={uuidv4()}>
-                <Link href={`/${page.toLowerCase().replace(/\W+/g, '-')}`}>
-                  <a>{page}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        {burgerIsOpen && (
+          <>
+            <button className={styles.close} onClick={toggleBurger}>
+              <svg>
+                <use href='#svg-close' />
+              </svg>
+            </button>
+            <nav className={styles.nav}>
+              <ul className={styles.list}>
+                {withHomeBtn && (
+                  <li>
+                    <Link href='/'>
+                      <a>Home</a>
+                    </Link>
+                  </li>
+                )}
+                {pages.map((page) => (
+                  <li key={uuidv4()}>
+                    <Link href={`/${page.toLowerCase().replace(/\W+/g, '-')}`}>
+                      <a>{page}</a>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </>
+        )}
       </Modal>
     </>
   )
