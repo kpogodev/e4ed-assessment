@@ -1,12 +1,15 @@
+import axios from 'axios'
+import { NavigationProvider } from 'context/NavigationContext'
 import Layout from 'components/layout/Layout'
 import 'styles/globals.css'
-import axios from 'axios'
 
 function MyApp({ Component, pageProps, navigation }) {
   return (
-    <Layout navigation={navigation}>
-      <Component {...pageProps} />
-    </Layout>
+    <NavigationProvider navlist={navigation}>
+      <Layout navigation={navigation}>
+        <Component {...pageProps} />
+      </Layout>
+    </NavigationProvider>
   )
 }
 
@@ -25,8 +28,6 @@ MyApp.getInitialProps = async (ctx) => {
       slug: subpage.attributes.slug,
     })),
   }))
-
-
 
   return {
     navigation,

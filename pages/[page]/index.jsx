@@ -1,8 +1,7 @@
-import React from 'react'
 import axios from 'axios'
 
 const ContentPageTemplate = ({ pageData }) => {
-  return <div></div>
+  return <div>ContentPageTemplate</div>
 }
 
 export async function getStaticPaths() {

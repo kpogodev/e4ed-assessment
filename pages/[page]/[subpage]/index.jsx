@@ -1,7 +1,6 @@
 import axios from 'axios'
 
 const ContentSubpageTemplate = ({ subpageData }) => {
-  console.log(subpageData)
   return <div>ContentSubpageTemplate</div>
 }
 
@@ -9,8 +8,6 @@ export async function getStaticPaths() {
   const {
     data: { data },
   } = await axios.get('http://localhost:1337/api/pages?populate=*')
-
-  console.log(data[0].attributes.subpages.data)
 
   const paths = data
     .map((page) => page.attributes.subpages.data.map((subpage) => ({ params: { page: page.attributes.slug, subpage: subpage.attributes.slug } })))
