@@ -1,13 +1,12 @@
-import React from 'react'
 import Image from 'next/image'
-import styles from './HeroHome.module.css'
+import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay, Pagination, EffectFade } from 'swiper'
+import styles from './HeroHome.module.css'
 import 'swiper/css'
 import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
-import Link from 'next/link'
 
 const HeroHome = () => {
   return (

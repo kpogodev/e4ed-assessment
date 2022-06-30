@@ -15,6 +15,14 @@ const CTA = ({ text, href, variant = 'secondary' }) => {
         <a className={`${styles.button} ${styles.secondary}`}>{text}</a>
       </Link>
     )
+
+  if (variant === 'accent') {
+    return (
+      <Link href={href}>
+        <a className={`${styles.button} ${styles.accent}`}>{text}</a>
+      </Link>
+    )
+  }
 }
 
 export default CTA

@@ -14,6 +14,13 @@
   transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
+.button:hover,
+.button:focus-visible {
+  background: #fff;
+  color: var(--cl-primary);
+  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3);
+}
+
 .primary {
   background: var(--cl-primary);
   color: #fff;
@@ -24,9 +31,13 @@
   color: #fff;
 }
 
-.button:hover,
-.button:focus-visible {
+.accent {
   background: #fff;
   color: var(--cl-primary);
-  box-shadow: 3px 3px 9px rgba(0, 0, 0, 0.3);
+}
+
+.accent:hover,
+.accent:focus-visible {
+  background: var(--cl-secondary);
+  color: #fff;
 }

@@ -54,3 +54,17 @@ button {
 svg {
   pointer-events: none;
 }
+
+.swiper-slide:not(.swiper-slide-visible) {
+  pointer-events: none;
+  opacity: 0;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.swiper-button-disabled {
+  pointer-events: none;
+}
+
+.swiper-button-disabled > * {
+  opacity: 0.3;
+}

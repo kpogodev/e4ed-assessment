@@ -1,5 +1,5 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
-import CTA from 'components/shared/CTA'
+import CTA from 'components/common/CTA'
 import Modal from 'components/modal/Modal'
 import styles from './Welcome.module.css'
 
