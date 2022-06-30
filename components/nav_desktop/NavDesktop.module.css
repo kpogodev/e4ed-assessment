@@ -10,6 +10,10 @@
 }
 
 .item {
+  position: static;
+}
+
+.link {
   position: relative;
   font-size: clamp(1.6rem, 1.2vw, 1.7rem);
   font-weight: 700;
@@ -20,7 +24,7 @@
   transition: color 0.2s ease;
 }
 
-.item::after {
+.link::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -33,33 +37,88 @@
   transition: transform 0.2s ease;
 }
 
-.item:hover,
-.item:focus-visible {
+.item:hover .link,
+.item:focus-within .link {
   color: var(--cl-primary);
 }
 
-.item:hover::after,
-.item:focus-visible::after {
+.item:hover .link::after,
+.item:focus-within .link::after {
   transform: scaleX(1);
 }
 
+.item:hover .sublist,
+.item:focus-within .sublist {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
 .sublist {
-  display: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 5rem;
   position: absolute;
-  top: 100%;
+  top: calc(100% + 4rem);
   left: 0;
   width: 100%;
-  background: var(--cl-background);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  background: #fff;
+  padding: 5rem;
+  opacity: 0;
+  transform: translateY(3rem);
+  pointer-events: none;
+  visibility: hidden;
+  border-radius: clamp(3rem, 4.28vw, 6rem) 0;
+  box-shadow: 3px 3px 16px rgba(0, 0, 0, 0.16);
+  transition: transform 0.2s ease, opacity 0.2s ease;
   z-index: 1;
 }
 
+.sublist::before {
+  content: '';
+  width: 100%;
+  height: 4rem;
+  position: absolute;
+  top: -4rem;
+  left: 0;
+}
+
 .sublist_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
+  border-bottom: 1px solid var(--cl-text-light);
+  padding: 0.3rem 0;
+  gap: 1rem;
 }
 
 .sublist_link {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: relative;
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding-right: 2rem;
+  color: var(--cl-text-dark);
+  text-transform: uppercase;
+  transition: color 0.2s ease;
+}
+
+.sublist_link svg {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 1.2rem;
+  height: 1.2rem;
+  fill: currentColor;
+}
+
+.sublist_link:hover,
+.sublist_link:focus-visible {
+  color: var(--cl-primary);
 }

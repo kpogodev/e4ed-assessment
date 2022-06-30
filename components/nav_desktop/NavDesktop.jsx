@@ -13,21 +13,30 @@ const NavDesktop = ({ withHomeBtn }) => {
           {withHomeBtn && (
             <li className={styles.item}>
               <Link href='/'>
-                <a className={styles.link}>Home</a>
+                <a className={styles.link} onClick={(e) => e.target.blur()}>
+                  Home
+                </a>
               </Link>
             </li>
           )}
           {pages.map((page) => (
             <li className={styles.item} key={page.id}>
               <Link href={`/${page.slug}`}>
-                <a className={styles.link}>{page.name}</a>
+                <a className={styles.link} onClick={(e) => e.target.blur()}>
+                  {page.name}
+                </a>
               </Link>
               {page.subpages.length > 0 && (
                 <ul className={styles.sublist}>
                   {page.subpages.map((subpage) => (
                     <li key={subpage.id} className={styles.sublist_item}>
                       <Link href={`/${page.slug}/${subpage.slug}`}>
-                        <a className={styles.sublist_link}>{subpage.name}</a>
+                        <a className={styles.sublist_link} onClick={(e) => e.target.blur()}>
+                          {subpage.name}
+                          <svg>
+                            <use href='#svg-arrow' />
+                          </svg>
+                        </a>
                       </Link>
                     </li>
                   ))}
