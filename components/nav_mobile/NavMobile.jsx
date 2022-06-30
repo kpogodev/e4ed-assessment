@@ -29,17 +29,28 @@ const NavMobile = ({ withHomeBtn }) => {
             <nav className={styles.nav}>
               <ul className={styles.list}>
                 {withHomeBtn && (
-                  <li>
+                  <li className={styles.item}>
                     <Link href='/'>
-                      <a>Home</a>
+                      <a className={styles.link}>Home</a>
                     </Link>
                   </li>
                 )}
                 {pages.map((page) => (
-                  <li key={uuidv4()}>
-                    <Link href={`/${page.toLowerCase().replace(/\W+/g, '-')}`}>
-                      <a>{page}</a>
+                  <li key={page.id} className={styles.item}>
+                    <Link href={`/${page.slug}`}>
+                      <a className={styles.link}>{page.name}</a>
                     </Link>
+                    {page.subpages.length > 0 && (
+                      <ul className={styles.sublist}>
+                        {page.subpages.map((subpage) => (
+                          <li key={subpage.id} className={styles.sublist_item}>
+                            <Link href={`/${page.slug}/${subpage.slug}`}>
+                              <a className={styles.sublist_link}>{subpage.name}</a>
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </li>
                 ))}
               </ul>

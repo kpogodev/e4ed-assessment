@@ -1,13 +1,15 @@
 import React from 'react'
 import axios from 'axios'
 
-const ContentPageTemplate = ({ page }) => {
-  return <div>{page}</div>
+const ContentPageTemplate = ({ pageData }) => {
+  return <div></div>
 }
 
 export async function getStaticPaths() {
-  const { data } = await axios.get('http://localhost:3000/api/pages')
-  const paths = data.map((page) => ({ params: { page: page.toLowerCase().replace(/\W+/g, '-') } }))
+  const {
+    data: { data },
+  } = await axios.get('http://localhost:1337/api/pages')
+  const paths = data.map((page) => ({ params: { page: page.attributes.slug } }))
   return {
     paths,
     fallback: false,
@@ -15,11 +17,14 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const { page } = context.params
+  const {
+    data: { data },
+  } = await axios.get(`http://localhost:1337/api/pages?filters[slug][$eq]=${context.params.page}&populate=*`)
   return {
     props: {
-      page,
+      pageData: data,
     },
+    revalidate: 10,
   }
 }
 

@@ -24,7 +24,6 @@ const UpcomingEvents = () => {
     slidesPerView: 1,
     spaceBetween: 18,
     watchSlidesProgress: true,
-    watchSlidesVisibility: true,
     navigation: {
       nextEl: `.${styles.swiper_next}`,
       prevEl: `.${styles.swiper_prev}`,

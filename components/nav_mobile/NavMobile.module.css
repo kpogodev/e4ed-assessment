@@ -63,12 +63,12 @@
   border-top: 1px solid rgba(0, 0, 0, 0.12);
 }
 
-.list > li {
+.item {
   width: 100%;
   padding: 1.5rem 2rem;
 }
 
-.list > li > a {
+.link {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--cl-text-dark);
@@ -76,7 +76,28 @@
   transition: color 0.2s ease;
 }
 
-.list > li > a:hover,
-.list > li > a:focus-visible {
+.link:hover,
+.link:focus-visible {
   color: var(--cl-primary);
+}
+
+.sublist {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--cl-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.sublist_item {
+  position: relative;
+}
+
+.sublist_link {
+  position: relative;
 }

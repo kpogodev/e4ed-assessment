@@ -9,7 +9,7 @@
   gap: clamp(1.5rem, 1.85vw, 2.6rem);
 }
 
-.list > li > a {
+.item {
   position: relative;
   font-size: clamp(1.6rem, 1.2vw, 1.7rem);
   font-weight: 700;
@@ -20,7 +20,7 @@
   transition: color 0.2s ease;
 }
 
-.list > li > a::after {
+.item::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -33,12 +33,33 @@
   transition: transform 0.2s ease;
 }
 
-.list > li > a:hover,
-.list > li > a:focus-visible {
+.item:hover,
+.item:focus-visible {
   color: var(--cl-primary);
 }
 
-.list > li > a:hover::after,
-.list > li > a:focus-visible::after {
+.item:hover::after,
+.item:focus-visible::after {
   transform: scaleX(1);
+}
+
+.sublist {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: var(--cl-background);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.sublist_item {
+  position: relative;
+}
+
+.sublist_link {
+  position: relative;
 }
