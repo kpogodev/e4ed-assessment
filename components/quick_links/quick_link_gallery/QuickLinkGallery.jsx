@@ -9,7 +9,7 @@ import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 import 'swiper/css/effect-fade'
 
-const QuickLinkGallery = () => {
+const QuickLinkGallery = ({ data }) => {
   const swiperConfig = {
     modules: [Autoplay, Pagination, Navigation, EffectFade],
     slidesPerView: 1,
@@ -37,19 +37,15 @@ const QuickLinkGallery = () => {
   }
 
   return (
-    <Link href='/gallery'>
+    <Link href={data.slug}>
       <a className={styles.container}>
         <div className={styles.inner}>
           <Swiper className={styles.slideshow} {...swiperConfig}>
-            <SwiperSlide className='swiper-no-swiping'>
-              <Image src='/slideshow-1.jpg' layout='fill' objectFit='cover' alt='' priority />
-            </SwiperSlide>
-            <SwiperSlide className='swiper-no-swiping'>
-              <Image src='/slideshow-2.jpg' layout='fill' objectFit='cover' alt='' />
-            </SwiperSlide>
-            <SwiperSlide className='swiper-no-swiping'>
-              <Image src='/slideshow-3.jpg' layout='fill' objectFit='cover' alt='' />
-            </SwiperSlide>
+            {data.slideshow.map((slide) => (
+              <SwiperSlide key={slide.hash} className='swiper-no-swiping'>
+                <Image src={slide.src} layout='fill' objectFit='cover' alt={slide.alt} priority />
+              </SwiperSlide>
+            ))}
           </Swiper>
           <div className={styles.overlay} />
           <div className={styles.content}>

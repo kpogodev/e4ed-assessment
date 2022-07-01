@@ -31,8 +31,7 @@ const UpcomingEvents = ({ data }) => {
       },
     },
   }
-
-  console.log(data)
+  
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
