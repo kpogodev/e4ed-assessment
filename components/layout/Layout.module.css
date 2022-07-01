@@ -8,4 +8,17 @@
 .main {
   position: relative;
   min-height: 50vh;
+  padding-bottom: clamp(7rem, 7.14vw, 10rem);
+  overflow: hidden;
+}
+
+.watermark {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(15%, 35%);
+  width: 38.78vw;
+  aspect-ratio: 1 / 1;
+  fill: var(--cl-secondary);
+  z-index: -1;
 }

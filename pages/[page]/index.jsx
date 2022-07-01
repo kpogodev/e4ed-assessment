@@ -6,9 +6,12 @@ import { v4 as uuid } from 'uuid'
 import { API_URL } from 'config'
 import ReactMarkdown from 'react-markdown'
 import styles from 'styles/ContentPageTemplate.module.css'
+import HeroContent from 'components/hero_content/HeroContent'
 
 const ContentPageTemplate = ({ pageData }) => {
   const router = useRouter()
+
+  const pageTitle = router.query.page.replace(/-/g, ' ').replace('and', '&')
 
   if (router.isFallback) {
     return <div>Loading...</div>
@@ -17,6 +20,7 @@ const ContentPageTemplate = ({ pageData }) => {
   return (
     <motion.div className={styles.main} key={uuid()} variants={pageTrnasition} initial='hidden' animate='visible' exit='exit'>
       <div className={styles.content}>
+        <HeroContent topic={pageTitle} />
         <ReactMarkdown>{pageData.attributes.content}</ReactMarkdown>
       </div>
     </motion.div>

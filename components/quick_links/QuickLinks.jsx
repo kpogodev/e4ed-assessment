@@ -11,9 +11,6 @@ const QuickLinks = () => {
         <QuickLinkStudent />
         <QuickLinkGallery />
       </div>
-      <svg className={styles.watermark}>
-        <use href='#svg-logo' />
-      </svg>
     </div>
   )
 }
