@@ -1,7 +1,7 @@
 import { useState, useContext, useCallback } from 'react'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
-import Modal from '../../modal/Modal'
+import Modal from '../../../../common/modal/Modal'
 import NavigationContext from 'context/NavigationContext'
 import styles from './NavMobile.module.css'
 

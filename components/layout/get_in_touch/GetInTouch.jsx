@@ -1,4 +1,4 @@
-import CTA from 'components/common/CTA'
+import CTA from 'components/common/cta/CTA'
 import styles from './GetInTouch.module.css'
 
 const GetInTouch = () => {

@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
-import CTA from 'components/common/CTA'
-import Modal from 'components/modal/Modal'
+import CTA from 'components/common/cta/CTA'
+import Modal from 'components/common/modal/Modal'
 import styles from './Welcome.module.css'
 
 const Welcome = () => {

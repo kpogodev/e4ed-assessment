@@ -1,8 +1,7 @@
-import { NavigationProvider } from 'context/NavigationContext'
-import Header from 'components/header/Header'
+import Header from 'components/layout/header/Header'
+import GetInTouch from 'components/layout/get_in_touch/GetInTouch'
+import Footer from 'components/layout/footer/Footer'
 import styles from './Layout.module.css'
-import GetInTouch from 'components/get_in_touch/GetInTouch'
-import Footer from 'components/footer/Footer'
 
 const Layout = ({ children }) => {
   return (

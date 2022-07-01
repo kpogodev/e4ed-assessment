@@ -1,5 +1,5 @@
 import HeaderLink from './header_link/HeaderLink'
-import NavWrap from 'components/navigation/nav_wrap/NavWrap'
+import NavWrap from 'components/layout/header/navigation/nav_wrap/NavWrap'
 import styles from './Header.module.css'
 
 const Header = () => {
