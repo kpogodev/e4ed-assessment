@@ -1,0 +1,40 @@
+.container {
+  position: relative;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: clamp(4rem, 8.21vw, 11.5rem) 2.5vw clamp(10rem, 13.57vw, 19rem);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.inner {
+  width: 100%;
+  max-width: 56rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: clamp(1rem, 2vw, 2rem);
+}
+
+.watermark {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translate(15%, 35%);
+  width: 38.78vw;
+  aspect-ratio: 1 / 1;
+  fill: var(--cl-secondary);
+  z-index: -1;
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    display: grid;
+    grid-template-areas:
+      'newsletters gallery'
+      'student gallery';
+    grid-template-columns: repeat(2, 1fr);
+    max-width: var(--grid-width-xl);
+  }
+}

@@ -1,7 +1,7 @@
 import { useState, useContext, useCallback } from 'react'
 import Link from 'next/link'
 import { v4 as uuidv4 } from 'uuid'
-import Modal from '../modal/Modal'
+import Modal from '../../modal/Modal'
 import NavigationContext from 'context/NavigationContext'
 import styles from './NavMobile.module.css'
 
@@ -31,21 +31,27 @@ const NavMobile = ({ withHomeBtn }) => {
                 {withHomeBtn && (
                   <li className={styles.item}>
                     <Link href='/'>
-                      <a className={styles.link}>Home</a>
+                      <a className={styles.link} onClick={toggleBurger}>
+                        Home
+                      </a>
                     </Link>
                   </li>
                 )}
                 {pages.map((page) => (
                   <li key={page.id} className={styles.item}>
                     <Link href={`/${page.slug}`}>
-                      <a className={styles.link}>{page.name}</a>
+                      <a className={styles.link} onClick={toggleBurger}>
+                        {page.name}
+                      </a>
                     </Link>
                     {page.subpages.length > 0 && (
                       <ul className={styles.sublist}>
                         {page.subpages.map((subpage) => (
                           <li key={subpage.id} className={styles.sublist_item}>
                             <Link href={`/${page.slug}/${subpage.slug}`}>
-                              <a className={styles.sublist_link}>{subpage.name}</a>
+                              <a className={styles.sublist_link} onClick={toggleBurger}>
+                                {subpage.name}
+                              </a>
                             </Link>
                           </li>
                         ))}

@@ -58,7 +58,7 @@
   max-height: 90vh;
   aspect-ratio: 16 / 9;
   background: #000;
-  border: clamp(1rem, 1.42vw, 2rem) solid #fff;
+  border: clamp(1rem, 1.42vw, 2rem) solid var(--cl-primary);
   border-radius: 1rem;
   box-shadow: 2px 4px 18px rgba(0, 0, 0, 0.5);
   z-index: 1;
