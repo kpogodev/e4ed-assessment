@@ -16,9 +16,9 @@ const GetInTouch = () => {
       <iframe
         className={styles.map}
         src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8279.926850834947!2d-0.1691143430029275!3d51.90408864553483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd65fdddfa406ac53!2zNTHCsDU0JzExLjQiTiAwwrAwOSc0Ni44Ilc!5e0!3m2!1sen!2suk!4v1656636431928!5m2!1sen!2suk'
-        allowFullScreen='true'
+        allowFullScreen
         loading='lazy'
-        referrerpolicy='no-referrer-when-downgrade'
+        referrerPolicy='no-referrer-when-downgrade'
       ></iframe>
     </div>
   )

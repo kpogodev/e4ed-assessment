@@ -2,12 +2,16 @@ import axios from 'axios'
 import { NavigationProvider } from 'context/NavigationContext'
 import Layout from 'components/layout/Layout'
 import 'styles/globals.css'
+import { AnimatePresence } from 'framer-motion'
+import { API_URL } from 'config'
 
 function MyApp({ Component, pageProps, navigation }) {
   return (
     <NavigationProvider navlist={navigation}>
       <Layout navigation={navigation}>
-        <Component {...pageProps} />
+        <AnimatePresence exitBeforeEnter>
+          <Component {...pageProps} />
+        </AnimatePresence>
       </Layout>
     </NavigationProvider>
   )
@@ -16,7 +20,7 @@ function MyApp({ Component, pageProps, navigation }) {
 MyApp.getInitialProps = async (ctx) => {
   const {
     data: { data },
-  } = await axios.get('http://localhost:1337/api/pages?populate=%2A')
+  } = await axios.get(`${API_URL}/api/pages?populate=*`)
 
   const navigation = data.map((page) => ({
     id: page.id,

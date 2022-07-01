@@ -54,13 +54,11 @@ const HeroHome = () => {
           <div className={styles.pagination}></div>
         </div>
       </div>
-      <Link href='/#welcome'>
-        <a className={styles.scroll_down}>
-          <svg>
-            <use href='#svg-arrow' />
-          </svg>
-        </a>
-      </Link>
+      <a href='#welcome' className={styles.scroll_down}>
+        <svg>
+          <use href='#svg-arrow' />
+        </svg>
+      </a>
     </div>
   )
 }
