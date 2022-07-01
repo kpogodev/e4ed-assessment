@@ -26,7 +26,7 @@ const ContentSubpageTemplate = ({ subpageData }) => {
         <Breadcrumbs />
         <h1 className='page-title'>{subpageTitle}</h1>
         <div className={styles.inner}>
-          <ReactMarkdown>{subpageData.attributes.content}</ReactMarkdown>
+          {subpageData.attributes.content ? <ReactMarkdown>{subpageData.attributes.content}</ReactMarkdown> : <p>This page is awaiting content.</p>}
         </div>
       </div>
     </motion.div>

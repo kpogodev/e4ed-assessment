@@ -25,7 +25,7 @@ const ContentPageTemplate = ({ pageData }) => {
         <Breadcrumbs />
         <h1 className='page-title'>{pageTitle}</h1>
         <div className={styles.inner}>
-          <ReactMarkdown>{pageData.attributes.content}</ReactMarkdown>
+          {pageData.attributes.content ? <ReactMarkdown>{pageData.attributes.content}</ReactMarkdown> : <p>This page is awaiting content.</p>}
         </div>
       </div>
     </motion.div>
