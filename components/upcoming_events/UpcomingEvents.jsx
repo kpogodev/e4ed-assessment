@@ -9,16 +9,7 @@ import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
 
-const UpcomingEvents = () => {
-  const eventMockup = {
-    id: 1,
-    title: 'Event Name Goes Here',
-    date: new Date(),
-    start_time: new Date('2022-06-29T12:00:10.977Z'),
-    end_time: new Date('2022-06-29T15:00:10.977Z'),
-    url: '/news-events/events/1',
-  }
-
+const UpcomingEvents = ({ data }) => {
   const swiperConfig = {
     modules: [Navigation, Pagination],
     slidesPerView: 1,
@@ -40,6 +31,8 @@ const UpcomingEvents = () => {
       },
     },
   }
+
+  console.log(data)
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
@@ -62,116 +55,30 @@ const UpcomingEvents = () => {
             </svg>
           </button>
           <Swiper className={styles.swiper} {...swiperConfig}>
-            <SwiperSlide className={styles.swiper_item}>
-              <Link href={eventMockup.url}>
-                <a className={styles.card}>
-                  <p className={styles.card_date}>
-                    {moment(eventMockup.date).format('DD')}
-                    <span>{moment(eventMockup.date).format('MMM')}</span>
-                  </p>
-                  <p className={styles.card_title}>{eventMockup.title}</p>
-                  <p className={styles.card_time}>
-                    <svg>
-                      <use href='#svg-clock' />
+            {data.map((event) => (
+              <SwiperSlide key={event.id} className={styles.swiper_item}>
+                <Link href='/news-and-events'>
+                  <a className={styles.card}>
+                    <p className={styles.card_date}>
+                      {moment(event.date).format('DD')}
+                      <span>{moment(event.date).format('MMM')}</span>
+                    </p>
+                    <p className={styles.card_title}>{event.title}</p>
+                    <p className={styles.card_time}>
+                      <svg>
+                        <use href='#svg-clock' />
+                      </svg>
+                      <span>
+                        {moment(event.start_time).format('h:mmA')} - {moment(event.end_time).format('h:mmA')}
+                      </span>
+                    </p>
+                    <svg className={styles.card_watermark}>
+                      <use href='#svg-logo' />
                     </svg>
-                    <span>
-                      {moment(eventMockup.start_time).format('h:mmA')} - {moment(eventMockup.end_time).format('h:mmA')}
-                    </span>
-                  </p>
-                  <svg className={styles.card_watermark}>
-                    <use href='#svg-logo' />
-                  </svg>
-                </a>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_item}>
-              <Link href={eventMockup.url}>
-                <a className={styles.card}>
-                  <p className={styles.card_date}>
-                    {moment(eventMockup.date).format('DD')}
-                    <span>{moment(eventMockup.date).format('MMM')}</span>
-                  </p>
-                  <p className={styles.card_title}>{eventMockup.title}</p>
-                  <p className={styles.card_time}>
-                    <svg>
-                      <use href='#svg-clock' />
-                    </svg>
-                    <span>
-                      {moment(eventMockup.start_time).format('h:mmA')} - {moment(eventMockup.end_time).format('h:mmA')}
-                    </span>
-                  </p>
-                  <svg className={styles.card_watermark}>
-                    <use href='#svg-logo' />
-                  </svg>
-                </a>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_item}>
-              <Link href={eventMockup.url}>
-                <a className={styles.card}>
-                  <p className={styles.card_date}>
-                    {moment(eventMockup.date).format('DD')}
-                    <span>{moment(eventMockup.date).format('MMM')}</span>
-                  </p>
-                  <p className={styles.card_title}>{eventMockup.title}</p>
-                  <p className={styles.card_time}>
-                    <svg>
-                      <use href='#svg-clock' />
-                    </svg>
-                    <span>
-                      {moment(eventMockup.start_time).format('h:mmA')} - {moment(eventMockup.end_time).format('h:mmA')}
-                    </span>
-                  </p>
-                  <svg className={styles.card_watermark}>
-                    <use href='#svg-logo' />
-                  </svg>
-                </a>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_item}>
-              <Link href={eventMockup.url}>
-                <a className={styles.card}>
-                  <p className={styles.card_date}>
-                    {moment(eventMockup.date).format('DD')}
-                    <span>{moment(eventMockup.date).format('MMM')}</span>
-                  </p>
-                  <p className={styles.card_title}>{eventMockup.title}</p>
-                  <p className={styles.card_time}>
-                    <svg>
-                      <use href='#svg-clock' />
-                    </svg>
-                    <span>
-                      {moment(eventMockup.start_time).format('h:mmA')} - {moment(eventMockup.end_time).format('h:mmA')}
-                    </span>
-                  </p>
-                  <svg className={styles.card_watermark}>
-                    <use href='#svg-logo' />
-                  </svg>
-                </a>
-              </Link>
-            </SwiperSlide>
-            <SwiperSlide className={styles.swiper_item}>
-              <Link href={eventMockup.url}>
-                <a className={styles.card}>
-                  <p className={styles.card_date}>
-                    {moment(eventMockup.date).format('DD')}
-                    <span>{moment(eventMockup.date).format('MMM')}</span>
-                  </p>
-                  <p className={styles.card_title}>{eventMockup.title}</p>
-                  <p className={styles.card_time}>
-                    <svg>
-                      <use href='#svg-clock' />
-                    </svg>
-                    <span>
-                      {moment(eventMockup.start_time).format('h:mmA')} - {moment(eventMockup.end_time).format('h:mmA')}
-                    </span>
-                  </p>
-                  <svg className={styles.card_watermark}>
-                    <use href='#svg-logo' />
-                  </svg>
-                </a>
-              </Link>
-            </SwiperSlide>
+                  </a>
+                </Link>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
       </div>

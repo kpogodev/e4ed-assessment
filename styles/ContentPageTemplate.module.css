@@ -1,7 +1,26 @@
 .content {
+  margin: 10rem auto;
+  max-width: 80ch;
 }
 
 .content p {
   padding: 0.5rem 0;
   line-height: 1.5;
+}
+
+.content img {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+
+.content a {
+  color: var(--cl-secondary);
+  font-weight: 800;
+  transition: 0.2s color ease;
+}
+
+.content a:hover,
+.content a:focus-visible {
+  color: var(--cl-primary);
 }

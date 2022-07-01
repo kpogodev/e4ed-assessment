@@ -19,8 +19,8 @@ const ContentPageTemplate = ({ pageData }) => {
 
   return (
     <motion.div className={styles.main} key={uuid()} variants={pageTrnasition} initial='hidden' animate='visible' exit='exit'>
+      <HeroContent topic={pageTitle} />
       <div className={styles.content}>
-        <HeroContent topic={pageTitle} />
         <ReactMarkdown>{pageData.attributes.content}</ReactMarkdown>
       </div>
     </motion.div>
