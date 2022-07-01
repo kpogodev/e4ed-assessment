@@ -1,0 +1,38 @@
+.container {
+  display: grid;
+  place-items: center;
+  padding: clamp(2.5rem, 3.57vw, 5rem) 2.5vw;
+  background: var(--cl-primary);
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+  width: 100%;
+  max-width: var(--grid-width-xl);
+}
+
+.container a {
+  color: #fff;
+  transition: color 0.2s ease;
+}
+
+.container a:hover,
+.container a:focus-visible {
+  color: var(--cl-secondary);
+}
+
+@media (min-width: 1170px) {
+  .inner {
+    flex-direction: row;
+    gap: 2rem;
+    justify-content: space-between;
+  }
+}
