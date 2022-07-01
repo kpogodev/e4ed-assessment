@@ -34,7 +34,7 @@ const Welcome = ({ data }) => {
             <p>{data?.text}</p>
             <div className={styles.cta_wrap}>
               <CTA href={data?.slug} text='Find out more' />
-              <button className={styles.open} onClick={toggleModal}>
+              <button className={styles.open} onClick={toggleModal} style={{ backgroundImage: `url(${data?.poster?.url})` }}>
                 <div className={styles.open_icon}>
                   <svg>
                     <use href='#svg-arrow' />

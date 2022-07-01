@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import styles from 'styles/ContentPageTemplate.module.css'
 import HeroContent from 'components/hero_content/HeroContent'
 import Breadcrumbs from 'components/common/breadcrumbs/Breadcrumbs'
+import Meta from 'components/utilities/Meta'
 
 const ContentPageTemplate = ({ pageData }) => {
   const router = useRouter()
@@ -20,6 +21,7 @@ const ContentPageTemplate = ({ pageData }) => {
 
   return (
     <motion.div className={styles.main} key={uuid()} variants={pageTrnasition} initial='hidden' animate='visible' exit='exit'>
+      <Meta title={`- ${pageTitle.charAt(0).toUpperCase() + pageTitle.slice(1)}`} />
       <HeroContent topic={pageTitle} />
       <div className={styles.content}>
         <Breadcrumbs />

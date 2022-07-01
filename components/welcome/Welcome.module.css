@@ -104,6 +104,7 @@
     min-width: 16.4rem;
     border-radius: clamp(1.5rem, 1.78vw, 2.5rem) 0 clamp(1.5rem, 1.78vw, 2.5rem) 0;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.16);
+    background-image: none !important;
     background: var(--cl-secondary);
     color: #fff;
     transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
@@ -155,7 +156,9 @@
     width: clamp(30rem, 28.57vw, 40rem);
     aspect-ratio: 1 / 1;
     border-radius: 25% 0 25% 0;
-    background: url(/video-placeholder.png) no-repeat center/cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     overflow: hidden;
     box-shadow: 10px 10px 60px rgba(0, 0, 0, 0.4);
     z-index: 1;

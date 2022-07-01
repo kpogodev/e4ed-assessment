@@ -8,6 +8,7 @@ import ReactMarkdown from 'react-markdown'
 import styles from 'styles/ContentSubpageTemplate.module.css'
 import HeroContent from 'components/hero_content/HeroContent'
 import Breadcrumbs from 'components/common/breadcrumbs/Breadcrumbs'
+import Meta from 'components/utilities/Meta'
 
 const ContentSubpageTemplate = ({ subpageData }) => {
   const router = useRouter()
@@ -21,6 +22,7 @@ const ContentSubpageTemplate = ({ subpageData }) => {
 
   return (
     <motion.div key={uuid()} variants={pageTrnasition} initial='hidden' animate='visible' exit='exit'>
+      <Meta title={`- ${subpageTitle.charAt(0).toUpperCase() + subpageTitle.slice(1)}`} />
       <HeroContent topic={pageTitle} />
       <div className={styles.content}>
         <Breadcrumbs />
