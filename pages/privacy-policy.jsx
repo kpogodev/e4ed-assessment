@@ -1,7 +1,12 @@
+import Maintenance from 'components/utilities/Maintenance'
 import React from 'react'
 
 const PrivacyPolicy = () => {
-  return <div>privacy-policy</div>
+  return (
+    <div>
+      <Maintenance />
+    </div>
+  )
 }
 
 export default PrivacyPolicy
