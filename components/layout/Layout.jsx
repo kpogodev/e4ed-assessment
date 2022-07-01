@@ -3,7 +3,7 @@ import GetInTouch from 'components/layout/get_in_touch/GetInTouch'
 import Footer from 'components/layout/footer/Footer'
 import styles from './Layout.module.css'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, getInTouch }) => {
   return (
     <div className={styles.container}>
       <Header />
@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
           <use href='#svg-logo' />
         </svg>
       </main>
-      <GetInTouch />
+      <GetInTouch data={getInTouch} />
       <Footer />
     </div>
   )

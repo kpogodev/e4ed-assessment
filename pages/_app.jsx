@@ -5,10 +5,10 @@ import 'styles/globals.css'
 import { AnimatePresence } from 'framer-motion'
 import { API_URL } from 'config'
 
-function MyApp({ Component, pageProps, navigation }) {
+function MyApp({ Component, pageProps, navigation, getInTouch }) {
   return (
     <NavigationProvider navlist={navigation}>
-      <Layout navigation={navigation}>
+      <Layout navigation={navigation} getInTouch={getInTouch}>
         <AnimatePresence exitBeforeEnter>
           <Component {...pageProps} />
         </AnimatePresence>
@@ -21,6 +21,12 @@ MyApp.getInitialProps = async (ctx) => {
   const {
     data: { data },
   } = await axios.get(`${API_URL}/api/pages?populate=*`)
+
+  // Fetch Get In Touch
+  const {
+    data: { data: getInTouchData },
+  } = await axios.get(`${API_URL}/api/get-in-touch?populate=*`)
+  const getInTouch = getInTouchData.attributes
 
   const navigation = data.map((page) => ({
     id: page.id,
@@ -35,6 +41,7 @@ MyApp.getInitialProps = async (ctx) => {
 
   return {
     navigation,
+    getInTouch,
   }
 }
 

@@ -1,15 +1,16 @@
 import CTA from 'components/common/cta/CTA'
 import styles from './GetInTouch.module.css'
 
-const GetInTouch = () => {
+const GetInTouch = ({ data }) => {
+  console.log(data)
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
         <h2 className={styles.header}>How To Find Us</h2>
         <div className={styles.contact_wrap}>
           <h2 className={styles.contact_header}>Get In Touch</h2>
-          <p className={styles.contact_address}>Brittain Waazy, Stevenage Hertfordshire, SP12 8UT</p>
-          <p className={styles.contact_phone}>01438 312356</p>
+          <p className={styles.contact_address}>{data.address}</p>
+          <p className={styles.contact_phone}>{data.phone}</p>
           <CTA text='Email Us' href='/contact-us' variant='secondary' />
         </div>
       </div>

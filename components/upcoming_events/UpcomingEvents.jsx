@@ -31,7 +31,7 @@ const UpcomingEvents = ({ data }) => {
       },
     },
   }
-  
+
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
@@ -39,7 +39,7 @@ const UpcomingEvents = ({ data }) => {
           <h2>Upcoming Events</h2>
           <div className={styles.cta_wrap}>
             <CTA text='Term Dates' href='/parents/term-dates' variant='accent' />
-            <CTA text='View All Events' href='/news-events/events' variant='accent' />
+            <CTA text='View All Events' href='/news-and-events/events' variant='accent' />
           </div>
         </div>
         <div className={styles.swiper_wrap}>
