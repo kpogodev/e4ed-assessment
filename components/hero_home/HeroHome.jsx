@@ -7,7 +7,7 @@ import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
 
-const HeroHome = () => {
+const HeroHome = ({ slideshow }) => {
   const scrollDownTo = (e) => {
     e.preventDefault()
     const targetPosition = document.querySelector(e.target.getAttribute('href')).offsetTop
@@ -42,15 +42,11 @@ const HeroHome = () => {
           fadeEffect={{ crossFade: true }}
           loop
         >
-          <SwiperSlide className='swiper-no-swiping'>
-            <Image src='/slideshow-1.jpg' layout='fill' objectFit='cover' alt='' priority />
-          </SwiperSlide>
-          <SwiperSlide className='swiper-no-swiping'>
-            <Image src='/slideshow-2.jpg' layout='fill' objectFit='cover' alt='' />
-          </SwiperSlide>
-          <SwiperSlide className='swiper-no-swiping'>
-            <Image src='/slideshow-3.jpg' layout='fill' objectFit='cover' alt='' />
-          </SwiperSlide>
+          {slideshow.map((slide) => (
+            <SwiperSlide key={slide.hash} className='swiper-no-swiping'>
+              <Image src={slide.src} layout='fill' objectFit='cover' alt={slide.name} priority />
+            </SwiperSlide>
+          ))}
         </Swiper>
         <div className={styles.overlay}>
           <svg>

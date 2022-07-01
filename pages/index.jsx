@@ -1,17 +1,19 @@
+import axios from 'axios'
+import { API_URL } from 'config'
+import { motion } from 'framer-motion'
+import { pageTrnasition } from 'utils/animationVariantsFramerMotion'
+import { v4 as uuid } from 'uuid'
 import HeroHome from 'components/hero_home/HeroHome'
 import Welcome from 'components/welcome/Welcome'
 import Meta from 'components/utilities/Meta'
 import UpcomingEvents from 'components/upcoming_events/UpcomingEvents'
 import QuickLinks from 'components/quick_links/QuickLinks'
-import { motion } from 'framer-motion'
-import { pageTrnasition } from 'utils/animationVariantsFramerMotion'
-import { v4 as uuid } from 'uuid'
 
-const Home = () => {
+const Home = ({ slideshow }) => {
   return (
     <motion.div key={uuid()} variants={pageTrnasition} initial='hidden' animate='visible' exit='exit'>
       <Meta title='- Home' />
-      <HeroHome />
+      <HeroHome slideshow={slideshow} />
       <Welcome />
       <UpcomingEvents />
       <QuickLinks />
@@ -20,8 +22,21 @@ const Home = () => {
 }
 
 export async function getStaticProps(context) {
+  // Fetch Slideshow
+  const { data: slideshowData } = await axios.get(`${API_URL}/api/slideshow-home?populate=*`)
+  const slideshow = slideshowData.data.attributes.slideshow.data.map((slide) => ({
+    id: slide.id,
+    alt: slide.attributes.name,
+    hash: slide.attributes.hash,
+    src: slide.attributes.url,
+    formats: slide.attributes.formats,
+  }))
+
   return {
-    props: {},
+    props: {
+      slideshow,
+    },
+    revalidate: 5,
   }
 }
 
