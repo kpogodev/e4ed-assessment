@@ -43,7 +43,7 @@ export async function getStaticProps(context) {
   // Fetch Upcoming Events
   const {
     data: { data: upcomingEventsData },
-  } = await axios.get(`${API_URL}/api/events?populate=*`)
+  } = await axios.get(`${API_URL}/api/events?populate=*&sort=date:asc`)
 
   const upcomingEvents = upcomingEventsData.map((event) => ({
     id: event.id,
