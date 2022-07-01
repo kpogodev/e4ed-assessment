@@ -6,32 +6,32 @@
   color: var(--cl-text-dark);
 }
 
-.content h2,
-.content h3,
-.content h4,
-.content h5,
-.content h6 {
+.inner h2,
+.inner h3,
+.inner h4,
+.inner h5,
+.inner h6 {
   color: #333;
 }
 
-.content p {
+.inner p {
   padding: 0.5rem 0;
   line-height: 1.5;
 }
 
-.content img {
+.inner img {
   display: block;
   width: 100%;
   object-fit: cover;
 }
 
-.content a {
+.inner a {
   color: var(--cl-secondary);
   font-weight: 800;
   transition: 0.2s color ease;
 }
 
-.content a:hover,
-.content a:focus-visible {
+.inner a:hover,
+.inner a:focus-visible {
   color: var(--cl-primary);
 }
