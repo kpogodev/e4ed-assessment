@@ -8,6 +8,15 @@ import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
 
 const HeroHome = () => {
+  const scrollDownTo = (e) => {
+    e.preventDefault()
+    const targetPosition = document.querySelector(e.target.getAttribute('href')).offsetTop
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth',
+    })
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
@@ -53,7 +62,7 @@ const HeroHome = () => {
           <div className={styles.pagination}></div>
         </div>
       </div>
-      <a href='#welcome' className={styles.scroll_down}>
+      <a href='#welcome' className={styles.scroll_down} onClick={scrollDownTo}>
         <svg>
           <use href='#svg-arrow' />
         </svg>
