@@ -3,7 +3,7 @@ import CTA from 'components/common/cta/CTA'
 import Modal from 'components/common/modal/Modal'
 import styles from './Welcome.module.css'
 
-const Welcome = () => {
+const Welcome = ({ data }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
 
   const videoRef = useRef(null)
@@ -30,14 +30,10 @@ const Welcome = () => {
       <div className={styles.inner}>
         <div className={styles.content_wrap}>
           <div className={styles.content}>
-            <h2>Welcome from the head</h2>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi massa nibh, elementum eu rhoncus vel, tempus quis elit. Ut metus lorem, pretium
-              sollicitudin purus eget, laoreet placerat augue. In sit amet vestibulum arcu, ultrices luctus est. Class aptent taciti sociosqu ad litora torquent
-              per conubia nostra.
-            </p>
+            <h2>{data.title}</h2>
+            <p>{data.text}</p>
             <div className={styles.cta_wrap}>
-              <CTA href='/about-us' text='Find out more' />
+              <CTA href={data.slug} text='Find out more' />
               <button className={styles.open} onClick={toggleModal}>
                 <div className={styles.open_icon}>
                   <svg>
@@ -55,17 +51,7 @@ const Welcome = () => {
               <use href='#svg-close' />
             </svg>
           </button>
-          <video
-            ref={videoRef}
-            className={styles.video}
-            src='/welcome-video.mp4'
-            preload='true'
-            playsInline
-            controls
-            muted
-            loop
-            poster='/video-placeholder.png'
-          >
+          <video ref={videoRef} className={styles.video} src={data.video.url} preload='true' playsInline controls muted loop poster={data.poster.url}>
             <source type='video/mp4' />
             <p>Your browser does not support this video.</p>
           </video>

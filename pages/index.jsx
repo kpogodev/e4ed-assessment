@@ -9,12 +9,12 @@ import Meta from 'components/utilities/Meta'
 import UpcomingEvents from 'components/upcoming_events/UpcomingEvents'
 import QuickLinks from 'components/quick_links/QuickLinks'
 
-const Home = ({ slideshow }) => {
+const Home = ({ slideshow, welcome }) => {
   return (
     <motion.div key={uuid()} variants={pageTrnasition} initial='hidden' animate='visible' exit='exit'>
       <Meta title='- Home' />
-      <HeroHome slideshow={slideshow} />
-      <Welcome />
+      <HeroHome data={slideshow} />
+      <Welcome data={welcome} />
       <UpcomingEvents />
       <QuickLinks />
     </motion.div>
@@ -32,9 +32,18 @@ export async function getStaticProps(context) {
     formats: slide.attributes.formats,
   }))
 
+  //Fetch Welcome Section
+  const { data: welcomeData } = await axios.get(`${API_URL}/api/welcome-section?populate=*`)
+  const welcome = {
+    ...welcomeData.data.attributes,
+    video: welcomeData.data.attributes.video.data.attributes,
+    poster: welcomeData.data.attributes.poster.data.attributes,
+  }
+
   return {
     props: {
       slideshow,
+      welcome,
     },
     revalidate: 5,
   }

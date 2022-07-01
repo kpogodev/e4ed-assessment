@@ -7,7 +7,7 @@ import 'swiper/css/autoplay'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-fade'
 
-const HeroHome = ({ slideshow }) => {
+const HeroHome = ({ data }) => {
   const scrollDownTo = (e) => {
     e.preventDefault()
     const targetPosition = document.querySelector(e.target.getAttribute('href')).offsetTop
@@ -42,7 +42,7 @@ const HeroHome = ({ slideshow }) => {
           fadeEffect={{ crossFade: true }}
           loop
         >
-          {slideshow.map((slide) => (
+          {data.map((slide) => (
             <SwiperSlide key={slide.hash} className='swiper-no-swiping'>
               <Image src={slide.src} layout='fill' objectFit='cover' alt={slide.name} priority />
             </SwiperSlide>
