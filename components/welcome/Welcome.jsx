@@ -30,10 +30,10 @@ const Welcome = ({ data }) => {
       <div className={styles.inner}>
         <div className={styles.content_wrap}>
           <div className={styles.content}>
-            <h2>{data.title}</h2>
-            <p>{data.text}</p>
+            <h2>{data?.title}</h2>
+            <p>{data?.text}</p>
             <div className={styles.cta_wrap}>
-              <CTA href={data.slug} text='Find out more' />
+              <CTA href={data?.slug} text='Find out more' />
               <button className={styles.open} onClick={toggleModal}>
                 <div className={styles.open_icon}>
                   <svg>
@@ -51,7 +51,7 @@ const Welcome = ({ data }) => {
               <use href='#svg-close' />
             </svg>
           </button>
-          <video ref={videoRef} className={styles.video} src={data.video.url} preload='true' playsInline controls muted loop poster={data.poster.url}>
+          <video ref={videoRef} className={styles.video} src={data?.video?.url} preload='true' playsInline controls muted loop poster={data?.poster?.url}>
             <source type='video/mp4' />
             <p>Your browser does not support this video.</p>
           </video>

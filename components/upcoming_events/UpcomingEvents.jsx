@@ -42,44 +42,48 @@ const UpcomingEvents = ({ data }) => {
             <CTA text='View All Events' href='/news-and-events/events' variant='accent' />
           </div>
         </div>
-        <div className={styles.swiper_wrap}>
-          <button className={styles.swiper_prev}>
-            <svg>
-              <use href='#svg-arrow' />
-            </svg>
-          </button>
-          <button className={styles.swiper_next}>
-            <svg>
-              <use href='#svg-arrow' />
-            </svg>
-          </button>
-          <Swiper className={styles.swiper} {...swiperConfig}>
-            {data.map((event) => (
-              <SwiperSlide key={event.id} className={styles.swiper_item}>
-                <Link href='/news-and-events'>
-                  <a className={styles.card}>
-                    <p className={styles.card_date}>
-                      {moment(event.date).format('DD')}
-                      <span>{moment(event.date).format('MMM')}</span>
-                    </p>
-                    <p className={styles.card_title}>{event.title}</p>
-                    <p className={styles.card_time}>
-                      <svg>
-                        <use href='#svg-clock' />
+        {data.length < 1 ? (
+          <p className={styles.no_data}>No events found</p>
+        ) : (
+          <div className={styles.swiper_wrap}>
+            <button className={styles.swiper_prev}>
+              <svg>
+                <use href='#svg-arrow' />
+              </svg>
+            </button>
+            <button className={styles.swiper_next}>
+              <svg>
+                <use href='#svg-arrow' />
+              </svg>
+            </button>
+            <Swiper className={styles.swiper} {...swiperConfig}>
+              {data.map((event) => (
+                <SwiperSlide key={event.id} className={styles.swiper_item}>
+                  <Link href='/news-and-events'>
+                    <a className={styles.card}>
+                      <p className={styles.card_date}>
+                        {moment(event.date).format('DD')}
+                        <span>{moment(event.date).format('MMM')}</span>
+                      </p>
+                      <p className={styles.card_title}>{event.title}</p>
+                      <p className={styles.card_time}>
+                        <svg>
+                          <use href='#svg-clock' />
+                        </svg>
+                        <span>
+                          {moment(event.start_time).format('h:mmA')} - {moment(event.end_time).format('h:mmA')}
+                        </span>
+                      </p>
+                      <svg className={styles.card_watermark}>
+                        <use href='#svg-logo' />
                       </svg>
-                      <span>
-                        {moment(event.start_time).format('h:mmA')} - {moment(event.end_time).format('h:mmA')}
-                      </span>
-                    </p>
-                    <svg className={styles.card_watermark}>
-                      <use href='#svg-logo' />
-                    </svg>
-                  </a>
-                </Link>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-        </div>
+                    </a>
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+          </div>
+        )}
       </div>
     </div>
   )

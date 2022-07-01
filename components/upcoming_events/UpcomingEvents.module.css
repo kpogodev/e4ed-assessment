@@ -190,6 +190,14 @@
   z-index: -1;
 }
 
+.no_data {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+}
+
 @media (min-width: 640px) {
   .header_wrap {
     flex-direction: row;

@@ -42,11 +42,12 @@ const HeroHome = ({ data }) => {
           fadeEffect={{ crossFade: true }}
           loop
         >
-          {data.map((slide) => (
-            <SwiperSlide key={slide.hash} className='swiper-no-swiping'>
-              <Image src={slide.src} layout='fill' objectFit='cover' alt={slide.name} priority />
-            </SwiperSlide>
-          ))}
+          {data.length > 0 &&
+            data.map((slide) => (
+              <SwiperSlide key={slide.hash} className='swiper-no-swiping'>
+                <Image src={slide.src} layout='fill' objectFit='cover' alt={slide.name} priority />
+              </SwiperSlide>
+            ))}
         </Swiper>
         <div className={styles.overlay}>
           <svg>

@@ -37,11 +37,11 @@ const QuickLinkGallery = ({ data }) => {
   }
 
   return (
-    <Link href={data.slug}>
+    <Link href={data?.slug}>
       <a className={styles.container}>
         <div className={styles.inner}>
           <Swiper className={styles.slideshow} {...swiperConfig}>
-            {data.slideshow.map((slide) => (
+            {data?.slideshow.map((slide) => (
               <SwiperSlide key={slide.hash} className='swiper-no-swiping'>
                 <Image src={slide.src} layout='fill' objectFit='cover' alt={slide.alt} priority />
               </SwiperSlide>
