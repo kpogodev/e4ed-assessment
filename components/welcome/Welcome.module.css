@@ -37,6 +37,7 @@
 }
 
 .content p {
+  min-height: 15rem;
   font-size: clamp(1.6rem, 1.42vw, 2rem);
   line-height: 1.5;
   color: var(--cl-text-dark);

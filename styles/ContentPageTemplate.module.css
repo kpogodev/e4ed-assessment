@@ -1,26 +1,37 @@
 .content {
-  margin: 10rem auto;
-  max-width: 80ch;
+  padding: clamp(4rem, 7.14vw, 10rem) 2.5vw clamp(8rem, 14.28vw, 20rem);
+  margin: 0 auto;
+  max-width: 90rem;
+  min-height: 60vh;
+  color: var(--cl-text-dark);
 }
 
-.content p {
+.inner h2,
+.inner h3,
+.inner h4,
+.inner h5,
+.inner h6 {
+  color: #333;
+}
+
+.inner p {
   padding: 0.5rem 0;
   line-height: 1.5;
 }
 
-.content img {
+.inner img {
   display: block;
   width: 100%;
   object-fit: cover;
 }
 
-.content a {
+.inner a {
   color: var(--cl-secondary);
   font-weight: 800;
   transition: 0.2s color ease;
 }
 
-.content a:hover,
-.content a:focus-visible {
+.inner a:hover,
+.inner a:focus-visible {
   color: var(--cl-primary);
 }

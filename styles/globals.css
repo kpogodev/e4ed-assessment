@@ -68,3 +68,11 @@ svg {
 .swiper-button-disabled > * {
   opacity: 0.3;
 }
+
+.page-title {
+  font-size: clamp(3rem, 3.21vw, 4.5rem);
+  font-weight: 800;
+  margin: clamp(2rem, 2.85vw, 4rem) 0;
+  text-transform: uppercase;
+  color: var(--cl-primary);
+}

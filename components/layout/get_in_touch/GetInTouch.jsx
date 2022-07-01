@@ -2,7 +2,6 @@ import CTA from 'components/common/cta/CTA'
 import styles from './GetInTouch.module.css'
 
 const GetInTouch = ({ data }) => {
-  console.log(data)
   return (
     <div className={styles.container}>
       <div className={styles.inner}>
